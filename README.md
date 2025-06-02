@@ -1,4 +1,5 @@
 # ➕ Arithmetic-Operations Web App 🧮  
+#### Author: Bocaletto Luca
 
 🚀 **Arithmetic-Operations** is an interactive **web app** designed to perform and visualize **basic mathematical operations** dynamically. This tool helps users practice and understand **addition**, **subtraction**, **multiplication**, and **division** interactively.  
 
