@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arithmetic Operations Explorer</title>
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header, footer {
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    /* TABS NAVIGATION */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #007BFF;
+      margin-bottom: 20px;
+    }
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      background: none;
+      border: none;
+      border-bottom: 4px solid transparent;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #007BFF;
+      transition: all 0.3s;
+    }
+    .tabs button.active {
+      border-bottom-color: #007BFF;
+      font-weight: bold;
+    }
+    /* TAB CONTENT */
+    .tabcontent {
+      display: none;
+    }
+    .tabcontent.active {
+      display: block;
+    }
+    /* SECTIONS */
+    section {
+      margin-bottom: 20px;
+    }
+    section p, section ul {
+      margin-bottom: 10px;
+    }
+    section ul li {
+      margin-left: 20px;
+      list-style: disc;
+    }
+    /* CALCULATOR & FORMS */
+    .calc {
+      margin: 15px 0;
+      text-align: center;
+    }
+    .calc label {
+      display: inline-block;
+      width: 200px;
+      font-weight: bold;
+    }
+    .calc input,
+    .calc select {
+      padding: 5px;
+      width: 100px;
+      margin-right: 10px;
+    }
+    .btn {
+      padding: 7px 15px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 10px;
+      padding: 10px;
+      background: #e9f2f9;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      margin-top: 20px;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Arithmetic Operations Explorer</h1>
+  </header>
+  <div class="container">
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+      <button class="tablinks active" onclick="openTab(event, 'info')" id="defaultTab">Info</button>
+      <button class="tablinks" onclick="openTab(event, 'addition')">Addition</button>
+      <button class="tablinks" onclick="openTab(event, 'subtraction')">Subtraction</button>
+      <button class="tablinks" onclick="openTab(event, 'multiplication')">Multiplication</button>
+      <button class="tablinks" onclick="openTab(event, 'division')">Division</button>
+      <button class="tablinks" onclick="openTab(event, 'quiz')">Quiz</button>
+    </div>
+
+    <!-- Info Tab -->
+    <div id="info" class="tabcontent active">
+      <h2>Introduction to Basic Arithmetic</h2>
+      <section>
+        <p>Arithmetic operations include addition, subtraction, multiplication, and division. They are the core of basic mathematics and are used in everyday life.</p>
+      </section>
+      <section>
+        <h3>Multiplication Tables (1 to 10)</h3>
+        <table class="multiplication" style="margin: 0 auto;">
+          <tr>
+            <th>*</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>2</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>12</td>
+            <td>14</td>
+            <td>16</td>
+            <td>18</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>3</td>
+            <td>6</td>
+            <td>9</td>
+            <td>12</td>
+            <td>15</td>
+            <td>18</td>
+            <td>21</td>
+            <td>24</td>
+            <td>27</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>4</td>
+            <td>8</td>
+            <td>12</td>
+            <td>16</td>
+            <td>20</td>
+            <td>24</td>
+            <td>28</td>
+            <td>32</td>
+            <td>36</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td>5</td>
+            <td>10</td>
+            <td>15</td>
+            <td>20</td>
+            <td>25</td>
+            <td>30</td>
+            <td>35</td>
+            <td>40</td>
+            <td>45</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td>6</td>
+            <td>12</td>
+            <td>18</td>
+            <td>24</td>
+            <td>30</td>
+            <td>36</td>
+            <td>42</td>
+            <td>48</td>
+            <td>54</td>
+            <td>60</td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td>7</td>
+            <td>14</td>
+            <td>21</td>
+            <td>28</td>
+            <td>35</td>
+            <td>42</td>
+            <td>49</td>
+            <td>56</td>
+            <td>63</td>
+            <td>70</td>
+          </tr>
+          <tr>
+            <th>8</th>
+            <td>8</td>
+            <td>16</td>
+            <td>24</td>
+            <td>32</td>
+            <td>40</td>
+            <td>48</td>
+            <td>56</td>
+            <td>64</td>
+            <td>72</td>
+            <td>80</td>
+          </tr>
+          <tr>
+            <th>9</th>
+            <td>9</td>
+            <td>18</td>
+            <td>27</td>
+            <td>36</td>
+            <td>45</td>
+            <td>54</td>
+            <td>63</td>
+            <td>72</td>
+            <td>81</td>
+            <td>90</td>
+          </tr>
+          <tr>
+            <th>10</th>
+            <td>10</td>
+            <td>20</td>
+            <td>30</td>
+            <td>40</td>
+            <td>50</td>
+            <td>60</td>
+            <td>70</td>
+            <td>80</td>
+            <td>90</td>
+            <td>100</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+
+    <!-- Addition Tab -->
+    <div id="addition" class="tabcontent">
+      <h2>Addition Calculator</h2>
+      <div class="calc">
+        <label for="addNum1">First Number:</label>
+        <input type="number" id="addNum1" placeholder="e.g., 5" step="any">
+        <label for="addNum2">Second Number:</label>
+        <input type="number" id="addNum2" placeholder="e.g., 7" step="any">
+        <button class="btn" onclick="calcAddition()">Calculate Sum</button>
+      </div>
+      <div id="addResult" class="result"></div>
+    </div>
+
+    <!-- Subtraction Tab -->
+    <div id="subtraction" class="tabcontent">
+      <h2>Subtraction Calculator</h2>
+      <div class="calc">
+        <label for="subNum1">Minuend:</label>
+        <input type="number" id="subNum1" placeholder="e.g., 15" step="any">
+        <label for="subNum2">Subtrahend:</label>
+        <input type="number" id="subNum2" placeholder="e.g., 8" step="any">
+        <button class="btn" onclick="calcSubtraction()">Calculate Difference</button>
+      </div>
+      <div id="subResult" class="result"></div>
+    </div>
+
+    <!-- Multiplication Tab -->
+    <div id="multiplication" class="tabcontent">
+      <h2>Multiplication Calculator</h2>
+      <div class="calc">
+        <label for="mulNum1">First Factor:</label>
+        <input type="number" id="mulNum1" placeholder="e.g., 4" step="any">
+        <label for="mulNum2">Second Factor:</label>
+        <input type="number" id="mulNum2" placeholder="e.g., 6" step="any">
+        <button class="btn" onclick="calcMultiplication()">Calculate Product</button>
+      </div>
+      <div id="mulResult" class="result"></div>
+    </div>
+
+    <!-- Division Tab -->
+    <div id="division" class="tabcontent">
+      <h2>Division Calculator</h2>
+      <div class="calc">
+        <label for="divNum1">Dividend:</label>
+        <input type="number" id="divNum1" placeholder="e.g., 20" step="any">
+        <label for="divNum2">Divisor:</label>
+        <input type="number" id="divNum2" placeholder="e.g., 4" step="any">
+        <button class="btn" onclick="calcDivision()">Calculate Quotient</button>
+      </div>
+      <div id="divResult" class="result"></div>
+    </div>
+
+    <!-- Quiz Tab -->
+    <div id="quiz" class="tabcontent">
+      <h2>Arithmetic Quiz</h2>
+      <div class="calc">
+        <button class="btn" onclick="newQuizQuestion()">New Question</button>
+      </div>
+      <div id="quizQuestion" class="result"></div>
+      <div class="calc">
+        <label for="quizAnswer">Your Answer:</label>
+        <input type="number" id="quizAnswer" placeholder="e.g., 42" step="any">
+        <button class="btn" onclick="checkQuizAnswer()">Submit Answer</button>
+      </div>
+      <div id="quizFeedback" class="result"></div>
+    </div>
+  </div>
+
+  <footer>
+    Bocaletto Luca
+  </footer>
+
+  <script>
+    "use strict";
+    // TAB NAVIGATION
+    function openTab(evt, tabName) {
+      const tabcontents = document.getElementsByClassName("tabcontent");
+      for (let i = 0; i < tabcontents.length; i++) {
+        tabcontents[i].style.display = "none";
+        tabcontents[i].classList.remove("active");
+      }
+      const tablinks = document.getElementsByClassName("tablinks");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+    document.getElementById("defaultTab").click();
+
+    /* ----- ADDITION ----- */
+    function calcAddition() {
+      const a = parseFloat(document.getElementById("addNum1").value);
+      const b = parseFloat(document.getElementById("addNum2").value);
+      const resultDiv = document.getElementById("addResult");
+      if (isNaN(a) || isNaN(b)) {
+        resultDiv.innerHTML = "<p>Please enter valid numbers.</p>";
+        return;
+      }
+      resultDiv.innerHTML = `<p>${a} + ${b} = ${(a + b)}</p>`;
+    }
+
+    /* ----- SUBTRACTION ----- */
+    function calcSubtraction() {
+      const a = parseFloat(document.getElementById("subNum1").value);
+      const b = parseFloat(document.getElementById("subNum2").value);
+      const resultDiv = document.getElementById("subResult");
+      if (isNaN(a) || isNaN(b)) {
+        resultDiv.innerHTML = "<p>Please enter valid numbers.</p>";
+        return;
+      }
+      resultDiv.innerHTML = `<p>${a} - ${b} = ${(a - b)}</p>`;
+    }
+
+    /* ----- MULTIPLICATION ----- */
+    function calcMultiplication() {
+      const a = parseFloat(document.getElementById("mulNum1").value);
+      const b = parseFloat(document.getElementById("mulNum2").value);
+      const resultDiv = document.getElementById("mulResult");
+      if (isNaN(a) || isNaN(b)) {
+        resultDiv.innerHTML = "<p>Please enter valid numbers.</p>";
+        return;
+      }
+      resultDiv.innerHTML = `<p>${a} × ${b} = ${(a * b)}</p>`;
+    }
+
+    /* ----- DIVISION ----- */
+    function calcDivision() {
+      const a = parseFloat(document.getElementById("divNum1").value);
+      const b = parseFloat(document.getElementById("divNum2").value);
+      const resultDiv = document.getElementById("divResult");
+      if (isNaN(a) || isNaN(b)) {
+        resultDiv.innerHTML = "<p>Please enter valid numbers.</p>";
+        return;
+      }
+      if(b === 0) {
+        resultDiv.innerHTML = "<p>Division by zero is undefined.</p>";
+        return;
+      }
+      resultDiv.innerHTML = `<p>${a} ÷ ${b} = ${(a / b).toFixed(4)}</p>`;
+    }
+
+    /* ----- QUIZ ----- */
+    let quizOp, quizA, quizB, quizAns;
+    function newQuizQuestion() {
+      // Randomly select an operation from +, -, *, /
+      const ops = ["+", "-", "*", "/"];
+      quizOp = ops[Math.floor(Math.random()*ops.length)];
+      // Generate two random numbers (integers between 1 and 20)
+      quizA = Math.floor(Math.random() * 20) + 1;
+      quizB = Math.floor(Math.random() * 20) + 1;
+      // For division, adjust so that the result is an integer
+      if(quizOp === "/") {
+        quizAns = quizA; // temporarily store quizA
+        quizA = quizA * quizB; // make dividend divisible by divisor
+      }
+      // Compute answer
+      switch(quizOp) {
+        case "+": quizAns = quizA + quizB; break;
+        case "-": quizAns = quizA - quizB; break;
+        case "*": quizAns = quizA * quizB; break;
+        case "/": quizAns = quizA / quizB; break;
+      }
+      const quizQuestionDiv = document.getElementById("quizQuestion");
+      quizQuestionDiv.innerHTML = `<p>What is ${quizA} ${quizOp} ${quizB}?</p>`;
+      document.getElementById("quizFeedback").innerHTML = "";
+      document.getElementById("quizAnswer").value = "";
+    }
+
+    function checkQuizAnswer() {
+      const userAnswer = parseFloat(document.getElementById("quizAnswer").value);
+      const feedbackDiv = document.getElementById("quizFeedback");
+      if(isNaN(userAnswer)) {
+        feedbackDiv.innerHTML = "<p>Please enter your answer.</p>";
+        return;
+      }
+      if(Math.abs(userAnswer - quizAns) < 1e-9) {
+        feedbackDiv.innerHTML = "<p style='color:green;'>Correct!</p>";
+      } else {
+        feedbackDiv.innerHTML = `<p style='color:red;'>Incorrect! The correct answer is ${quizAns}.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
