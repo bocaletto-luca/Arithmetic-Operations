@@ -3,6 +3,7 @@
 
 🚀 **Arithmetic-Operations** is an interactive **web app** designed to perform and visualize **basic mathematical operations** dynamically. This tool helps users practice and understand **addition**, **subtraction**, **multiplication**, and **division** interactively.  
 
+[![Test Online](https://img.shields.io/badge/Test%20Online-Click%20Here-brightgreen?style=for-the-badge)](https://bocaletto-luca.github.io/Arithmetic-Operations/)
 ---
 
 ## 🏆 Features  
